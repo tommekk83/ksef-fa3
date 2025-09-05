@@ -1,0 +1,23 @@
+{
+  "name": "intermedia/ksef-fa3",
+  "description": "PHP models for KSeF FA(3) with XML serializer and XSD validator",
+  "keywords": ["ksef","fa3"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "INTERMEDIA",
+      "email": "kontakt@gsmservice.pl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Intermedia\\Ksef\\Fa3\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "ext-dom": "*",
+    "ext-libxml": "*"
+  }
+}
