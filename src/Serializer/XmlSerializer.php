@@ -11,7 +11,8 @@ final class XmlSerializer
     public function createDocument(string $rootElement, object $rootModel): DOMDocument
     {
         $doc = new DOMDocument('1.0', 'UTF-8');
-        $doc->formatOutput = true;
+        $doc->formatOutput = false;
+        $doc->preserveWhiteSpace = false;
         $schema = $rootModel::schema();
         $ns = $schema['xmlNamespace'] ?? '';
         $root = $ns ? $doc->createElementNS($ns, $rootElement) : $doc->createElement($rootElement);
