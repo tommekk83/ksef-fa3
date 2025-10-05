@@ -37,7 +37,7 @@ final class XmlSerializer
         if (($schema['content'] ?? 'complex') === 'simple') {
             $val = $model->value ?? null;
             if ($val instanceof \UnitEnum) $val = $val->value;
-            if ($val !== null) $el->nodeValue = strval($val);
+            if ($val !== null) $el->appendChild($doc->createTextNode((string)$val));;
             return;
         }
         foreach (($schema['elements'] ?? []) as $ed) {
@@ -58,7 +58,7 @@ final class XmlSerializer
             $this->writeModel($doc, $c, $value, $ns);
         } else {
             if ($value instanceof \UnitEnum) $value = $value->value;
-            $c->nodeValue = strval($value);
+            $c->appendChild($doc->createTextNode((string)$value));
         }
         $parent->appendChild($c);
     }
